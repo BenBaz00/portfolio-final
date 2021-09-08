@@ -1,0 +1,42 @@
+@import "custom.scss";
+
+@font-face{
+    font-family:"Pixelar Regular W01 Regular";
+    src:url("./assets/fonts/1428314/4d8bd4f0-ce40-4f34-a0b8-49bc51024ea8.woff2") format("woff2"),url("./assets/fonts/1428314/9c200a14-d264-405c-86bf-d27b840e86be.woff") format("woff");
+}
+
+img{
+    border-radius: 15px;
+}
+
+li{
+    list-style-type: square;
+    list-style-position: inside;
+    padding-top: 1em;
+}
+
+ul.introAbout{
+    padding: 0;
+}
+
+li.hideBullet{
+    list-style-type:none
+}
+
+.headerNav{
+    font-family: "Pixelar Regular W01 Regular";
+    font-size: $font-size-lg;
+}
+
+.verticalFill{
+    min-height: 82.8vh;
+}
+
+a{
+    color:lightblue;
+}
+
+// Projects.js
+.modal-body{
+    max-height: 80%;
+}

@@ -1,25 +1,101 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { Container, Nav, Navbar} from 'react-bootstrap';
+import { LinkContainer} from 'react-router-bootstrap'
+import { EasybaseProvider } from 'easybase-react';
+import ebconfig from './ebconfig';
 
-function App() {
+import About from './pages/About'
+import Projects from './pages/Projects'
+import Resume from './pages/Resume'
+import Contact from './pages/Contact'
+
+import './App.scss';
+
+
+export default function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* Header Nav */}
+      <AppHeader />
+
+      {/* Content */}
+      <Container fluid className="verticalFill">
+      <Switch>
+        <Route exact path="/">
+          <About />
+        </Route>
+        <Route exact path="/projects">
+          <EasybaseProvider ebconfig={ebconfig}>
+            <Projects />
+          </EasybaseProvider>
+        </Route>
+        <Route exact path="/resume">
+          <Resume/>
+        </Route>
+        <Route exact path="/contact">
+          <Contact />
+        </Route>
+      </Switch> 
+      </Container>
+
+
+      {/* Footer Nav */}
+      <AppFooter />
+
+    </Router>
   );
 }
 
-export default App;
+function AppHeader(){
+  return(
+    <Navbar collapseOnSelect expand="md" className="bg-secondary mb-3">
+    <Container>
+      <Navbar.Brand >Benjamin Bazan</Navbar.Brand>
+
+      <Navbar.Toggle/>
+      <Navbar.Collapse>
+        <Nav className="headerNav">
+          <LinkContainer exact to="/">
+            <Nav.Link>About</Nav.Link>
+          </LinkContainer>
+          <LinkContainer exact to="/projects">
+            <Nav.Link>Projects</Nav.Link>
+          </LinkContainer>
+          <LinkContainer exact to="/resume">
+            <Nav.Link>Resume</Nav.Link>
+          </LinkContainer>
+          <LinkContainer exact to="/contact" >
+            <Nav.Link>Contact</Nav.Link>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>  
+  </Navbar>
+  )
+}
+
+function AppFooter(){
+  return(
+    <Navbar className="bg-secondary px-4 pb-4">
+    <Navbar.Toggle/>
+    <Navbar.Collapse>
+      <Nav>
+        <LinkContainer exact to="/">
+          <Nav.Link>About</Nav.Link>
+        </LinkContainer>
+        <LinkContainer exact to="/projects">
+          <Nav.Link>Projects</Nav.Link>
+        </LinkContainer>
+        <LinkContainer exact to="/resume">
+          <Nav.Link>Resume</Nav.Link>
+        </LinkContainer>
+        <LinkContainer exact to="/contact" >
+          <Nav.Link>Contact</Nav.Link>
+        </LinkContainer>
+      </Nav>
+
+    </Navbar.Collapse>
+    </Navbar>
+  )
+}

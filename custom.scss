@@ -1,0 +1,24 @@
+// Font
+$font-size-base: 1.2rem;
+$font-size-lg: $font-size-base * 1.5;
+
+$text-primary: black;
+
+// Theme colors
+$primary: #3A4454;
+$secondary: #53687E;
+$light: #F5DDDD;
+
+// Body
+$body-bg: $primary;
+$body-color: white;
+
+// Navbar colors
+$navbar-light-color: white;
+$navbar-light-brand-color: white;
+$navbar-light-brand-hover-color: white;
+$navbar-light-hover-color: lightblue;
+$navbar-light-active-color: lightblue;
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";

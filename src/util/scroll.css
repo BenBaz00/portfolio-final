@@ -1,0 +1,8 @@
+  .scroll-item {
+    opacity: 0;
+    transition: opacity 3s ease;
+  }
+  
+  .scroll-item--active {
+    opacity: 1;
+  }
