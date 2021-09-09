@@ -3,6 +3,7 @@ import { Container, Nav, Navbar} from 'react-bootstrap';
 import { LinkContainer} from 'react-router-bootstrap'
 import { EasybaseProvider } from 'easybase-react';
 import ebconfig from './ebconfig';
+import { SocialIcon } from 'react-social-icons'
 
 import About from './pages/About'
 import Projects from './pages/Projects'
@@ -54,7 +55,7 @@ function AppHeader(){
       <Navbar.Brand >Benjamin Bazan</Navbar.Brand>
 
       <Navbar.Toggle/>
-      <Navbar.Collapse>
+      <Navbar.Collapse className="justify-content-between">
         <Nav className="headerNav">
           <LinkContainer exact to="/">
             <Nav.Link>About</Nav.Link>
@@ -68,6 +69,10 @@ function AppHeader(){
           <LinkContainer exact to="/contact" >
             <Nav.Link>Contact</Nav.Link>
           </LinkContainer>
+
+        </Nav>
+        <Nav className="justify-content-end">
+          <SocialIcon url="https://www.linkedin.com/in/benjamin-bazan-08912314a/" bgColor="lightblue"/>
         </Nav>
       </Navbar.Collapse>
     </Container>  

@@ -20,19 +20,20 @@ class About extends React.Component{
                 </Col>
                 <Col xs={{order: 1, span: 12}} sm={{order: 1, span: 12}} md={{order:2, span: 6}} lg={{order: 1, span: 6}} className="my-auto text-center">
                     <ul className="introAbout">
-                        <li className="hideBullet"><h1>Programmer</h1></li>
+                        <li><h1>Programmer</h1></li>
                         <li><h1>Creator of Things</h1></li>
                         <li><h1>Never knows what to eat</h1></li>
                     </ul>
                 </Col>
             </Row>
 
-            <ScrollContent activeFrom={-400} activeTo={400}>
+            <ScrollContent activeFrom={-500} activeTo={400}>
             <Row className="bg-light pt-2 pb-2 mb-5">
                 <Col xs={12} sm={12} md={7} lg={9} className="my-auto text-primary px-5">     
                     <p>My name is Benjamin Bazan, and thank you for taking the time to get to know me!</p>
                     <p>I am a software engineer born and living in Milwaukee, Wisconsin. I recently graduated from Carroll University with a B.S. in Computer Science and a minor in Mathematics</p>
-                    <p>Previously, I have had experience working in professional settings developing and testing Kubernetes/Docker microservices written in Golang. School and self-study have also improved my proficiency in Java, C#, and SQL.</p>
+                    <p>Previously, I have had experience working in professional settings developing and testing Kubernetes/Docker microservices written in Golang.</p>
+                    <p>School and self study has influenced my ever growing set of skills; This includes full stack development knowledge through languages ranging through HTML/CSS/JS, Java, C++, C# or whatever else I decide to pick up.</p>
                 </Col>
                 <Col xs={12} sm={12} md={5} lg={3} className="text-center">
                 <Image src={GradImg} alt="Benjamin Bazan Graduation" fluid/>      

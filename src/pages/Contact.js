@@ -59,9 +59,12 @@ class Contact extends Component{
     render(){
         return(
             <>
-            <Row className="mb-3">
+            <Row className="text-center">
+                <p>Let me know if you have any questions, comments, or inquires. I will respond back as soon as possible.</p>
+            </Row>
+            <Row>
             {/* Email Form */}
-            <Col xs={12} sm={6} md={6} lg={6} className="bg-dark mx-4">
+            <Col xs={12} sm={6} md={6} lg={6} className="bg-dark mx-auto py-2">
                 <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit} className="mb-2">
                     <Form.Group className="mb-2">
                         <Form.Label>Name</Form.Label>
@@ -80,10 +83,6 @@ class Contact extends Component{
                     </Form.Group>
                     <Button variant="secondary" type="submit">Submit</Button>
                 </Form>
-            </Col>
-            {/* Addition Sites/Links */}
-            <Col xs={12} sm={6} md={6} lg={6}>
-                
             </Col>
     
             </Row>
