@@ -17,7 +17,6 @@ class ScrollContent extends React.Component {
 
     componentDidMount(){
         window.addEventListener('scroll', this.handleScroll);
-        this.handleScroll();
     }
 
     componentWillUnmount(){
@@ -26,7 +25,6 @@ class ScrollContent extends React.Component {
 
     handleScroll = () => {
         const { top } = this.wrapRef.getBoundingClientRect();
-        console.log("top: " + top)
 
         if (top > this.state.activeFrom && top < this.state.activeTo && !this.state.isActive) {
             this.setState({isActive: true})
@@ -41,11 +39,10 @@ class ScrollContent extends React.Component {
     }
 
     render(){
-        const {isActive } = this.state
-
+        
         return(
             <div 
-            className={`scroll-item ${isActive && 'scroll-item--active'}`}
+            className={`scroll-item ${this.state.isActive && 'scroll-item--active'}`}
             ref={this.setWrapRef}>
                 {this.props.children}
             </div>

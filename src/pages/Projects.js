@@ -38,12 +38,11 @@ function Projects(){
     return(
         <Container>
             {easybaseData.map(ele =>
-            <>
-                <Row key={ele.title}>
-                    <Col xs={12} sm={12} md={5} className="my-auto">
+                <Row key={ele.title} >
+                    <Col xs={12} sm={12} md={5} className="my-auto mb-3">
                         <Image src={ele.image} alt="Project Thumbnail" onClick={() => handleShow(ele.image)}fluid/>
                     </Col>
-                    <Col xs={12} sm={12} md={7}>
+                    <Col xs={12} sm={12} md={7} >
                         {ele?.site ? (
                             <Row>
                                 <h2><a href={ele.site}>{ele.title}</a></h2> 
@@ -57,9 +56,9 @@ function Projects(){
                             <p>{ele.comments}</p>
                         </Row>
                     </Col>
+                    <hr/>
                 </Row>
-                <hr/>
-            </>
+                
             )}
             
             <Modal show={show} onHide={handleClose} fullscreen>

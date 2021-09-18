@@ -14,7 +14,7 @@ class About extends React.Component{
     render(){
     return(
         <>
-            <Row className="mb-4">
+            <Row className="mb-5">
                 <Col xs={{order: 2, span: 12}} sm={{order: 2, span: 12}} md={{order: 1, span: 6}} lg={{order: 1, span: 6}}>
                     <Image src={MtImg} alt="On Mt. Elbert" fluid/>
                 </Col>

@@ -26,16 +26,19 @@ export default function App() {
         <Route exact path="/">
           <About />
         </Route>
-        <Route exact path="/projects">
+        <Route path="/projects">
           <EasybaseProvider ebconfig={ebconfig}>
             <Projects />
           </EasybaseProvider>
         </Route>
-        <Route exact path="/resume">
+        <Route path="/resume">
           <Resume/>
         </Route>
-        <Route exact path="/contact">
+        <Route path="/contact">
           <Contact />
+        </Route>
+        <Route path="*">
+          <About />
         </Route>
       </Switch> 
       </Container>

@@ -1,14 +1,19 @@
 import React from 'react';
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import resume from '../assets/Benjamin_Bazan_Resume.pdf'
+
 import { Container } from 'react-bootstrap';
 import { throttle } from 'lodash';
+import { pdfjs, Document, Page } from 'react-pdf';
 
+import resume from '../assets/Benjamin_Bazan_Resume.pdf'
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 class Resume extends React.Component{
     constructor(props){
         super(props)
+
         
+
         this.state = {
             PDFWidth: null
         }
@@ -34,7 +39,6 @@ class Resume extends React.Component{
         let width = this.wrapRef.offsetWidth - 80
 
         if (width >= 1100) {width = 1100}
-        console.log(width)
         this.setState({PDFWidth: width})
     }
 

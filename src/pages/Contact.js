@@ -13,8 +13,6 @@ class Contact extends Component{
             email: '',
             message: '',
             validated: false,
-            mailSent: false,
-            error: null,
         }
     }
 
@@ -29,18 +27,16 @@ class Contact extends Component{
         if (form.checkValidity() === false) {
             event.stopPropagation();
         }else{
-            console.log(this.state)
 
             axios({
                 method: "POST",
-                url:"http://localhost:3002/send",
+                url:"api/index.php",
                 data:  this.state
               }).then((response)=>{
                 if (response.data.status === 'success') {
-                  alert("Message Sent.");
-                  this.resetForm()
+                  if(!alert("Message Sent!")){window.location.reload()}
                 } else if(response.data.status === 'fail') {
-                  alert("Message failed to send.")
+                  alert("Message failed to send. " + response.data.error)
                 }
               })
         }
@@ -52,10 +48,6 @@ class Contact extends Component{
         })
     }
 
-    resetForm(){
-        this.setState({name: '', email: '', message: ''})
-    }
-
     render(){
         return(
             <>
@@ -64,24 +56,24 @@ class Contact extends Component{
             </Row>
             <Row>
             {/* Email Form */}
-            <Col xs={12} sm={6} md={6} lg={6} className="bg-dark mx-auto py-2">
+            <Col xs={12} sm={6} md={6} lg={6} className="mx-auto py-4 px-4 round-div bg-dark">
                 <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit} className="mb-2">
-                    <Form.Group className="mb-2">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control required type="text" placeholder="Please enter your name" onChange={e => this.setState({name: e.target.value})}/>
-                        <Form.Control.Feedback type="invalid">Please enter your name.</Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group className="mb-2" controlId="form.Email">
-                        <Form.Label>Email Address</Form.Label>
-                        <Form.Control required type="email" placeholder="Enter Email" onChange={e => this.setState({email: e.target.value})}/>
-                        <Form.Control.Feedback type="invalid">Please enter your email.</Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group className="mb-2">
-                        <Form.Label>Message</Form.Label>
-                        <Form.Control required as="textarea" rows={8} placeholder="What would you like to say?" onChange={e => this.setState({message: e.target.value})}/>
-                        <Form.Control.Feedback type="invalid">At least say hello..</Form.Control.Feedback>
-                    </Form.Group>
-                    <Button variant="secondary" type="submit">Submit</Button>
+                        <Form.Group className="mb-2">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control required type="text" placeholder="Please enter your name" onChange={e => this.setState({name: e.target.value})}/>
+                            <Form.Control.Feedback type="invalid">Please enter your name.</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group className="mb-2" controlId="form.Email">
+                            <Form.Label>Email Address</Form.Label>
+                            <Form.Control required type="email" placeholder="Enter Email" onChange={e => this.setState({email: e.target.value})}/>
+                            <Form.Control.Feedback type="invalid">Please enter your email.</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group className="mb-4">
+                            <Form.Label>Message</Form.Label>
+                            <Form.Control required as="textarea" rows={8} placeholder="What would you like to say?" onChange={e => this.setState({message: e.target.value})}/>
+                            <Form.Control.Feedback type="invalid">At least say hello..</Form.Control.Feedback>
+                        </Form.Group>
+                        <Button variant="secondary" className="float-end w-50" type="submit">Submit</Button>
                 </Form>
             </Col>
     
